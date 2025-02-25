@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGIQ 360 - Digital Design Mastery</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/500') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 10%;
+        }
+        
+        .hero-content {
+            text-align: right;
+            width: 50%;
+            color: white;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            justify-content: flex-end;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #a64dff, #3023ae);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            position: relative;
+            margin-right: 15px;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid white;
+            top: 10px;
+            left: 15px;
+        }
+        
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .purple-underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #a64dff, #3023ae);
+            margin: 10px 0 20px auto;
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            background-color: #eee;
+            padding: 20px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+        
+        .feature:last-child {
+            border-right: none;
+        }
+        
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 50px 10%;
+            background: linear-gradient(135deg, #64f8de, #4adac7);
+        }
+        
+        .services-header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .services-header h2 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .services-header h2 .highlight {
+            color: #a64dff;
+            margin-left: 10px;
+        }
+        
+        .services-header::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(to bottom, #a64dff, #3023ae);
+            left: -10px;
+            top: 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .service-category {
+            margin-bottom: 30px;
+        }
+        
+        .service-icon {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-list {
+            list-style-type: none;
+        }
+        
+        .service-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-list li::before {
+            content: '•';
+            color: #a64dff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Call to Action Section */
+        .cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 10%;
+        }
+        
+        .cta-text {
+            width: 40%;
+        }
+        
+        .cta-text h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            width: 50%;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #a64dff, #3023ae);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .footer-logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 15px solid white;
+            top: 7px;
+            left: 8px;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: #a64dff;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+                justify-content: center;
+                text-align: center;
+                padding: 0 5%;
+            }
+            
+            .hero-content {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .logo {
+                justify-content: center;
+            }
+            
+            .purple-underline {
+                margin: 10px auto 20px auto;
+            }
+            
+            .features {
+                flex-direction: column;
+            }
+            
+            .feature {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .feature:last-child {
+                border-bottom: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-text, .contact-info {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            footer {
+                flex-direction: column;
+            }
+            
+            .footer-nav {
+                margin-top: 20px;
+            }
+            
+            .footer-nav a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">DIGIQ</div>
+            </div>
+            <h1>Digital Design Mastery</h1>
+            <div class="purple-underline"></div>
+        </div>
+    </header>
+    
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">💡</div>
+            <h3>Unique Solutions</h3>
+            <p>Unique strategies for every customer</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🕗</div>
+            <h3>24/7 Support</h3>
+            <p>Need a change? Feel free to call us anytime</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Guaranteed fast delivery for customers</p>
+        </div>
+    </section>
+    
+    <section class="services">
+        <div class="services-header">
+            <h2>What we <span class="highlight">OFFER</span></h2>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-category">
+                <div class="service-icon">💻</div>
+                <h3>Graphic Designing</h3>
+                <ul class="service-list">
+                    <li>Logo Designing</li>
+                    <li>Flyer Design</li>
+                    <li>Package Design</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Management</h3>
+                <ul class="service-list">
+                    <li>Post Designing</li>
+                    <li>Ad Flyers</li>
+                    <li>Social Media Strategies</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">✍️</div>
+                <h3>Copywriting Services</h3>
+                <ul class="service-list">
+                    <li>Email Marketing</li>
+                    <li>Blog Writing</li>
+                    <li>Product Specs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="cta-text">
+            <h2>We Will Brighten Your Future</h2>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <p>digiq360@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <p>070-598-4324</p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <p>www.digiq360.com</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">
+            <div class="footer-logo-icon"></div>
+            <div class="footer-logo-text">DIGIQ</div>
+            <span>360</span>
+        </div>
+        
+        <nav class="footer-nav">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+        </nav>
+    </footer>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeInElements = document.querySelectorAll('.feature, .service-category, .cta-text, .contact-info');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        fadeInObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeInElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                fadeInObserver.observe(element);
+            });
+            
+            // Add click event for contact items
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
